@@ -1,22 +1,12 @@
-<div>
-  <div>H1</div>
-  <mat-grid-list cols="3" rowHeight="200px">
-    <mat-grid-tile
-      *ngFor="let tile of tiles"
-      [colspan]="tile.colspan"
-      [rowspan]="tile.rowspan"
-    >
-      <div class="tile-content">
-        <div>
-          {{ tile.text }}
-        </div>
-        <div>Hello world</div>
-        <div
-          class="resize-handle"
-          (mousedown)="startResize($event, tile)"
-        ></div>
-      </div>
-    </mat-grid-tile>
-  </mat-grid-list>
-  <div>H2</div>
-</div>
+<mat-grid-list [cols]="numCols" [rowHeight]="rowHeight">
+  <mat-grid-tile
+    *ngFor="let tile of tiles"
+    [colspan]="tile.colspan"
+    [rowspan]="tile.rowspan"
+  >
+    <div class="tile-content">
+      <app-tile />
+      <div class="resize-handle" (mousedown)="startResize($event, tile)"></div>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
